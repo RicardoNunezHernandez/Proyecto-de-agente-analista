@@ -1,0 +1,4 @@
+google-genai>=1.50
+python-dotenv>=1.0
+pandas>=2.0
+python-telegram-bot>=22.0

@@ -1,0 +1,14 @@
+# Secretos: NUNCA se sube el .env (contiene GEMINI_API_KEY y TELEGRAM_BOT_TOKEN)
+.env
+
+# Entorno virtual
+.venv/
+venv/
+
+# Cache de Python
+__pycache__/
+*.py[cod]
+
+# Sistema operativo / editor
+.DS_Store
+.vscode/
