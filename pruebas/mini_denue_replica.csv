@@ -1,0 +1,9 @@
+id,nombre,codigo_act,actividad,sector,estrato,municipio,tipo_asentamiento,colonia,codigo_postal,calle,numero_exterior,tipo_unidad,latitud,longitud,fecha_alta
+1,FARMACIA LA PAZ,464111,Farmacias sin minisuper,46,0 a 5 personas,Tampico,COLONIA,CENTRO,89000,AVENIDA HIDALGO,101,Fijo,22.2170,-97.8570,2010-07
+2,FARMA EXPRESS,464112,Farmacias con minisuper,46,6 a 10 personas,Ciudad Madero,COLONIA,UNIDAD NACIONAL,89510,CALLE PRIMERA,202,Fijo,22.2760,-97.8410,2014-11
+3,NATURISTA VIDA,464113,Comercio al por menor de productos naturistas y complementos alimenticios,46,0 a 5 personas,Tampico,COLONIA,CENTRO,89000,CALLE ALTAMIRA,303,Fijo,22.2180,-97.8590,2016-05
+4,TACOS EL GUERO,722514,Restaurantes con servicio de preparacion de tacos y tortas,72,0 a 5 personas,Tampico,COLONIA,LAS AMERICAS,89340,AVENIDA DE LAS AMERICAS,404,Semifijo,22.2440,-97.8660,2018-11
+5,TAQUERIA DONA LUPE,722514,Restaurantes con servicio de preparacion de tacos y tortas,72,11 a 30 personas,Ciudad Madero,COLONIA,UNIDAD NACIONAL,89510,CALLE SEGUNDA,505,Fijo,22.2770,-97.8430,2012-05
+6,CAFE DEL PUERTO,722515,"Cafeterias, fuentes de sodas, neverias, refresquerias y similares",72,6 a 10 personas,Tampico,COLONIA,CENTRO,89000,CALLE ADUANA,606,Fijo,22.2160,-97.8560,2019-11
+7,FARMACIA SAN JOSE,464111,Farmacias sin minisuper,46,0 a 5 personas,Ciudad Madero,COLONIA,PRIMERO DE MAYO,89440,CALLE ONCE,707,Fijo,22.2690,-97.8330,2011-05
+8,ABARROTES MARY,461110,"Comercio al por menor en tiendas de abarrotes, ultramarinos y misceláneas",46,0 a 5 personas,Tampico,COLONIA,LAS AMERICAS,89340,CALLE TERCERA,808,Fijo,22.2450,-97.8670,2013-11
