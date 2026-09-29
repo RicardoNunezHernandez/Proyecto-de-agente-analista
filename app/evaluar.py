@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from glob import glob
 from pathlib import Path
 from typing import Any
 
@@ -27,6 +28,31 @@ def leer_esperadas(ruta: str = RUTA_ESPERADAS) -> dict[str, dict[str, Any]]:
     crudo = json.loads(Path(ruta).read_text(encoding="utf-8"))
     lista = crudo.get("esperadas", crudo) if isinstance(crudo, dict) else crudo
     return {str(e["id"]): e for e in lista}
+
+
+def expandir(patrones: list[str]) -> list[str]:
+    """Expande comodines y quita repetidos.
+
+    PowerShell no expande `logs/corrida-*.jsonl` antes de llamar a Python, a
+    diferencia de bash, así que el patrón llegaría literal. Se expande aquí para que
+    el mismo comando funcione en los dos.
+    """
+    rutas: list[str] = []
+    for patron in patrones:
+        if any(comodin in patron for comodin in "*?["):
+            encontradas = sorted(glob(patron))
+            if not encontradas:
+                print(f"Aviso: ningún archivo coincide con {patron}", file=sys.stderr)
+            rutas.extend(encontradas)
+        else:
+            rutas.append(patron)
+    vistas: set[str] = set()
+    unicas: list[str] = []
+    for ruta in rutas:
+        if ruta not in vistas:
+            vistas.add(ruta)
+            unicas.append(ruta)
+    return unicas
 
 
 def leer_bitacoras(rutas: list[str]) -> tuple[dict[str, dict], dict[str, str], list[str]]:
@@ -110,7 +136,16 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 1
 
-    finales, preguntas, corridas = leer_bitacoras(argumentos.bitacoras)
+    bitacoras = expandir(argumentos.bitacoras)
+    faltantes = [r for r in bitacoras if not Path(r).exists()]
+    if faltantes or not bitacoras:
+        print(
+            "No encontré bitácoras que leer: " + (", ".join(faltantes) or "la lista quedó vacía"),
+            file=sys.stderr,
+        )
+        return 1
+
+    finales, preguntas, corridas = leer_bitacoras(bitacoras)
 
     resultados = [
         evaluar_una(esperadas[identificador], finales.get(identificador))
@@ -146,7 +181,7 @@ def main(argv: list[str] | None = None) -> int:
 
     salida = {
         "corridas": corridas,
-        "bitacoras": list(argumentos.bitacoras),
+        "bitacoras": bitacoras,
         "totales": {
             "automaticas": len(automaticas),
             "automaticas_aprobadas": len(aprobadas),
