@@ -575,7 +575,9 @@ DECLARACIONES: list[dict[str, Any]] = [
         "description": (
             "Agrupa por un campo y devuelve los valores con mas establecimientos, de mayor a menor. "
             "Usala para preguntas de tipo 'donde se concentran', 'cual es el municipio con mas' o "
-            "'como se reparten'. Devuelve tambien total_filtrado, el total que cumple los filtros."
+            "'como se reparten'. Devuelve tambien total_filtrado: el total que cumple los filtros, "
+            "asi que si necesitas el total Y el desglose NO llames a contar aparte, esta llamada "
+            "te da los dos."
         ),
         "parameters": {
             "type": "object",
