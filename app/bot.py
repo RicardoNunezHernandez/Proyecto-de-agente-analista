@@ -251,7 +251,13 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Usuarios permitidos: {sorted(permitidos) or 'ninguno'}")
     print(f"Bitácora: {bitacora.ruta}")
     print("Ctrl+C para detener.")
-    aplicacion.run_polling()
+    try:
+        aplicacion.run_polling()
+    except KeyboardInterrupt:
+        # En Windows, Ctrl+C sale por aquí a media parada: se detiene igual, pero sin
+        # el traceback, que parece una caída y no lo es.
+        pass
+    print("Bot detenido.")
     return 0
 
 
