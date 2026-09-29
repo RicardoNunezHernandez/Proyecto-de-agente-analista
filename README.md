@@ -217,6 +217,13 @@ Las dos preguntas que fallaron en el camino no fueron culpa del agente: un `429`
 agotada y un `503` por saturación del modelo. En los dos casos el lote registró el error y
 siguió, y bastó repetir la pregunta.
 
+Por Telegram se hicieron **3 preguntas propias** con el modelo real, distintas a las del
+banco: cuántas tortillerías hay en Ciudad Madero (122, juntando las clases 311830 y 311813),
+en qué colonia de Tampico hay más gimnasios (ZONA CENTRO, 7 de 97) y cuánto gana al mes una
+estética —que el DENUE no puede responder, y el agente lo dijo ofreciendo a cambio el reparto
+por estrato de los 675 salones de Tampico—. Las tres con `cifras_sin_respaldo: []`; las
+capturas están en `evidencia/`.
+
 Sin red, **95 comprobaciones** de `pruebas/prueba_herramientas.py` pasan, incluidos los seis
 casos de la guardia y los siete de la tabla chica de la traza. El detalle de todo esto está en
 `evaluacion/analisis.md`.
