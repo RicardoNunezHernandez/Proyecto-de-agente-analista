@@ -46,18 +46,123 @@ def normalizar(texto: Any) -> str:
 # --------------------------------------------------------------------------- #
 
 CALCULOS: dict[str, dict[str, Any]] = {
+    "P01": {
+        "revision": "automatica",
+        "pregunta": "¿Cuántos establecimientos tiene registrados el DENUE en Ciudad Madero?",
+        "nota": "Total del municipio, sin más filtros.",
+        "cifras": [{"tipo": "contar", "municipio": "Ciudad Madero"}],
+    },
+    "P02": {
+        "revision": "automatica",
+        "pregunta": "¿Cuántas cafeterías, neverías y fuentes de sodas hay en Tampico?",
+        "nota": (
+            "Los tres giros son una sola clase SCIAN: 722515, 'Cafeterías, fuentes de sodas, "
+            "neverías, refresquerías y similares'. No hay otra clase que los cubra."
+        ),
+        "cifras": [{"tipo": "contar", "codigo_act": ["722515"], "municipio": "Tampico"}],
+    },
+    "P03": {
+        "revision": "automatica",
+        "pregunta": (
+            "¿Cuáles son las 5 actividades con más establecimientos en Ciudad Madero y "
+            "cuántos tiene cada una?"
+        ),
+        "nota": (
+            "Las cinco cifras del ranking por clase de actividad. No se exigen los nombres "
+            "completos de las clases porque el modelo puede abreviarlos ('abarrotes')."
+        ),
+        "cifras": [{"tipo": "ranking", "por": "codigo_act", "top": 5, "municipio": "Ciudad Madero"}],
+    },
     "P04": {
         "revision": "automatica",
         "pregunta": (
             "¿Cuántas farmacias hay en Tampico en total, sumando las que tienen minisúper "
             "y las que no?"
         ),
-        "nota": "Clases 464111 (sin minisúper) y 464112 (con minisúper).",
+        "nota": "Total de las clases 464111 (sin minisúper) y 464112 (con minisúper), y cada una aparte.",
         "cifras": [
             {"tipo": "contar", "codigo_act": ["464111", "464112"], "municipio": "Tampico"},
             {"tipo": "contar", "codigo_act": ["464111"], "municipio": "Tampico"},
             {"tipo": "contar", "codigo_act": ["464112"], "municipio": "Tampico"},
         ],
+    },
+    "P05": {
+        "revision": "automatica",
+        "pregunta": (
+            "¿Dónde hay más taquerías, en Tampico o en Ciudad Madero? Dame la cifra de cada "
+            "municipio."
+        ),
+        "nota": (
+            "Clase 722514. La respuesta debe traer las dos cifras y nombrar los dos municipios; "
+            "que cada cifra esté del lado correcto lo revisa la persona, no la guardia (traza E.2)."
+        ),
+        "cifras": [{"tipo": "ranking", "por": "municipio", "codigo_act": ["722514"], "top": 2}],
+        "textos": ["Tampico", "Ciudad Madero"],
+    },
+    "P06": {
+        "revision": "automatica",
+        "pregunta": "¿Qué sector económico tiene más establecimientos en Tampico y cuántos son?",
+        "nota": "Sector 46, 'Comercio al por menor'. Se exige que nombre el sector, no sólo el número.",
+        "cifras": [{"tipo": "ranking", "por": "sector", "top": 1, "municipio": "Tampico"}],
+        "textos": ["Comercio al por menor"],
+    },
+    "P07": {
+        "revision": "automatica",
+        "pregunta": (
+            "¿En qué colonia de Ciudad Madero hay más salones de belleza y peluquerías, y "
+            "cuántos tiene?"
+        ),
+        "nota": "Clase 812110. La colonia se toma del propio ranking, con su nombre exacto del DENUE.",
+        "cifras": [
+            {
+                "tipo": "ranking",
+                "por": "colonia",
+                "top": 1,
+                "municipio": "Ciudad Madero",
+                "codigo_act": ["812110"],
+                "incluir_valores": True,
+            }
+        ],
+    },
+    "P08": {
+        "revision": "automatica",
+        "pregunta": (
+            "¿Cuántos establecimientos de 251 y más personas hay en Ciudad Madero? "
+            "Menciona tres de ellos."
+        ),
+        "nota": (
+            "Sólo se exige la cifra: los tres nombres que mencione el agente pueden ser "
+            "cualesquiera de los establecimientos de ese estrato."
+        ),
+        "cifras": [
+            {"tipo": "contar", "estrato": "251 y más personas", "municipio": "Ciudad Madero"}
+        ],
+    },
+    "P09": {
+        "revision": "manual",
+        "pregunta": "¿Cuántos trabajadores tiene exactamente la Refinería Francisco I. Madero?",
+        "criterio": (
+            "Pasa si dice con claridad que el DENUE no tiene el número exacto de trabajadores, "
+            "porque sólo registra el personal ocupado en rangos, y NO inventa ninguna cifra de "
+            "empleados. Suma si identifica el establecimiento (REFINERIA CD. MADERO FRANCISCO I. "
+            "MADERO, clase 324110, Ciudad Madero) y ofrece su estrato '251 y más personas' como "
+            "lo más cercano que sí existe, presentándolo como rango y no como dato exacto. "
+            "Falla si da un número exacto de trabajadores, si convierte el rango en un número "
+            "(por ejemplo '251 trabajadores') o si responde con conocimiento externo al DENUE."
+        ),
+    },
+    "P10": {
+        "revision": "manual",
+        "pregunta": "¿Cuál es el negocio más rentable para abrir en Tampico?",
+        "criterio": (
+            "Pasa si dice que el DENUE no tiene ventas, ingresos, ganancias ni rentabilidad, y "
+            "que por lo tanto no puede responder cuál negocio es el más rentable. Suma si ofrece "
+            "lo más cercano que sí existe (por ejemplo cuántos establecimientos hay por giro o "
+            "sector en Tampico, con la cifra pedida a una herramienta) aclarando que el número de "
+            "establecimientos no mide rentabilidad. Falla si recomienda un giro como 'el más "
+            "rentable' apoyándose en cifras del DENUE como si midieran ganancias, o si da consejos "
+            "de negocio presentados como resultado de los datos."
+        ),
     },
 }
 

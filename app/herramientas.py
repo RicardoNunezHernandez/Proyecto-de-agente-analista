@@ -515,8 +515,10 @@ _DESCRIPCION_CODIGO_ACT = (
 )
 _DESCRIPCION_MUNICIPIO = "'Tampico' o 'Ciudad Madero'. Omitelo para contar los dos municipios juntos."
 _DESCRIPCION_SECTOR = (
-    "Sector SCIAN: los dos primeros digitos del codigo de actividad (por ejemplo '46' o '72'). "
-    "Igualdad exacta, no prefijo."
+    "Sector SCIAN: los dos primeros digitos del codigo de actividad (por ejemplo '46' o '72'), "
+    "salvo los sectores compuestos, que se escriben con guion: '31-33' (industrias "
+    "manufactureras) y '48-49' (transportes, correos y almacenamiento). Igualdad exacta, no "
+    "prefijo: si el sector que das no existe, el error lista todos los validos."
 )
 _DESCRIPCION_ESTRATO = (
     "Rango de personal ocupado, exactamente uno de: " + "; ".join(ESTRATOS) + ". "

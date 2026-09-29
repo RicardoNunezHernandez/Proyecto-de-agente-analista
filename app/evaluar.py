@@ -68,13 +68,15 @@ def evaluar_una(esperada: dict[str, Any], final: dict | None) -> dict[str, Any]:
         "respuesta": final.get("respuesta", "") if final else "",
     }
 
+    if revision != "automatica":
+        salida["criterio"] = esperada.get("criterio", "")
+
     if final is None:
         salida["resultado"] = "SIN CORRIDA"
         return salida
 
     if revision != "automatica":
         salida["resultado"] = "MANUAL"
-        salida["criterio"] = esperada.get("criterio", "")
         return salida
 
     respuesta = final.get("respuesta", "")

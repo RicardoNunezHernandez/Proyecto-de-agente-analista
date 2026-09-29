@@ -1,0 +1,100 @@
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "inicio", "pregunta": "¿Cuántos establecimientos tiene registrados el DENUE en Ciudad Madero?"}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P01", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.04}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "inicio", "pregunta": "¿Cuántas cafeterías, neverías y fuentes de sodas hay en Tampico?"}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P02", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "inicio", "pregunta": "¿Cuáles son las 5 actividades con más establecimientos en Ciudad Madero y cuántos tiene cada una?"}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P03", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "inicio", "pregunta": "¿Cuántas farmacias hay en Tampico en total, sumando las que tienen minisúper y las que no?"}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P04", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "inicio", "pregunta": "¿Dónde hay más taquerías, en Tampico o en Ciudad Madero? Dame la cifra de cada municipio."}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P05", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "inicio", "pregunta": "¿Qué sector económico tiene más establecimientos en Tampico y cuántos son?"}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P06", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "inicio", "pregunta": "¿En qué colonia de Ciudad Madero hay más salones de belleza y peluquerías, y cuántos tiene?"}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P07", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "inicio", "pregunta": "¿Cuántos establecimientos de 251 y más personas hay en Ciudad Madero? Menciona tres de ellos."}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P08", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "inicio", "pregunta": "¿Cuántos trabajadores tiene exactamente la Refinería Francisco I. Madero?"}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P09", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "inicio", "pregunta": "¿Cuál es el negocio más rentable para abrir en Tampico?"}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "modelo", "turno": 1, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "herramienta", "nombre": "buscar_actividades", "args": {"texto": "farmacia"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "modelo", "turno": 2, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "herramienta", "nombre": "contar", "args": {"codigo_act": "464111,464112", "municipio": "Tampico"}, "ok": true, "error": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "modelo", "turno": 3, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "guardia", "cifras_sin_respaldo": [160], "corregida": false}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "modelo", "turno": 4, "forzar_texto": false, "tokens_entrada": null}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "guardia", "cifras_sin_respaldo": [], "corregida": true}
+{"ts": "2026-09-29T04:30:58", "corrida": "20260929-043058", "modelo": "simulado", "id": "P10", "evento": "fin", "respuesta": "Respuesta: En Tampico hay 154 farmacias (clases 464111 y 464112).\nDatos: DENUE 05/2026, INEGI", "turnos": 4, "herramientas": 2, "cifras_sin_respaldo": [], "segundos": 0.01}

@@ -1,0 +1,15 @@
+{
+  "descripcion": "Banco de pruebas del Proyecto · Unidad 1. Datos: DENUE 05/2026 (INEGI), Tampico y Ciudad Madero.",
+  "preguntas": [
+    {"id": "P01", "tipo": "conteo", "pregunta": "¿Cuántos establecimientos tiene registrados el DENUE en Ciudad Madero?"},
+    {"id": "P02", "tipo": "actividad", "pregunta": "¿Cuántas cafeterías, neverías y fuentes de sodas hay en Tampico?"},
+    {"id": "P03", "tipo": "ranking", "pregunta": "¿Cuáles son las 5 actividades con más establecimientos en Ciudad Madero y cuántos tiene cada una?"},
+    {"id": "P04", "tipo": "actividad", "pregunta": "¿Cuántas farmacias hay en Tampico en total, sumando las que tienen minisúper y las que no?"},
+    {"id": "P05", "tipo": "comparacion", "pregunta": "¿Dónde hay más taquerías, en Tampico o en Ciudad Madero? Dame la cifra de cada municipio."},
+    {"id": "P06", "tipo": "ranking", "pregunta": "¿Qué sector económico tiene más establecimientos en Tampico y cuántos son?"},
+    {"id": "P07", "tipo": "ranking", "pregunta": "¿En qué colonia de Ciudad Madero hay más salones de belleza y peluquerías, y cuántos tiene?"},
+    {"id": "P08", "tipo": "listado", "pregunta": "¿Cuántos establecimientos de 251 y más personas hay en Ciudad Madero? Menciona tres de ellos."},
+    {"id": "P09", "tipo": "limite", "pregunta": "¿Cuántos trabajadores tiene exactamente la Refinería Francisco I. Madero?"},
+    {"id": "P10", "tipo": "fuera", "pregunta": "¿Cuál es el negocio más rentable para abrir en Tampico?"}
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "corridas": [],
+  "bitacoras": [
+    "logs/corrida-20260929-043058.jsonl"
+  ],
+  "totales": {
+    "automaticas": 8,
+    "automaticas_aprobadas": 0,
+    "manuales": 2,
+    "sin_corrida": 10
+  },
+  "resultados": [
+    {
+      "id": "P01",
+      "revision": "automatica",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P02",
+      "revision": "automatica",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P03",
+      "revision": "automatica",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P04",
+      "revision": "automatica",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P05",
+      "revision": "automatica",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P06",
+      "revision": "automatica",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P07",
+      "revision": "automatica",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P08",
+      "revision": "automatica",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P09",
+      "revision": "manual",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "criterio": "Pasa si dice con claridad que el DENUE no tiene el número exacto de trabajadores, porque sólo registra el personal ocupado en rangos, y NO inventa ninguna cifra de empleados. Suma si identifica el establecimiento (REFINERIA CD. MADERO FRANCISCO I. MADERO, clase 324110, Ciudad Madero) y ofrece su estrato '251 y más personas' como lo más cercano que sí existe, presentándolo como rango y no como dato exacto. Falla si da un número exacto de trabajadores, si convierte el rango en un número (por ejemplo '251 trabajadores') o si responde con conocimiento externo al DENUE.",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    },
+    {
+      "id": "P10",
+      "revision": "manual",
+      "turnos": null,
+      "herramientas": null,
+      "cifras_sin_respaldo": null,
+      "respuesta": "",
+      "criterio": "Pasa si dice que el DENUE no tiene ventas, ingresos, ganancias ni rentabilidad, y que por lo tanto no puede responder cuál negocio es el más rentable. Suma si ofrece lo más cercano que sí existe (por ejemplo cuántos establecimientos hay por giro o sector en Tampico, con la cifra pedida a una herramienta) aclarando que el número de establecimientos no mide rentabilidad. Falla si recomienda un giro como 'el más rentable' apoyándose en cifras del DENUE como si midieran ganancias, o si da consejos de negocio presentados como resultado de los datos.",
+      "resultado": "SIN CORRIDA",
+      "pregunta": ""
+    }
+  ]
+}

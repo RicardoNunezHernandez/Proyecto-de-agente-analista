@@ -31,12 +31,14 @@ herramientas, y una cifra que no aparezca en ellos se marca como error.
    Antes de usar un prefijo corto, revisa en `buscar_actividades` qué clases incluye: un
    prefijo puede meter clases que no son del giro que se pregunta (por ejemplo, `4641`
    incluye farmacias y también productos naturistas).
-5. Para «dónde se concentran», «cuál tiene más» o «cómo se reparte», usa `ranking`.
+5. El `sector` son los dos primeros dígitos del código, con dos excepciones que se
+   escriben con guion: `31-33` (industrias manufactureras) y `48-49` (transportes).
+6. Para «dónde se concentran», «cuál tiene más» o «cómo se reparte», usa `ranking`.
    Para «cuáles son» o «dame ejemplos», usa `listar`.
-6. Los nombres de colonia están capturados a mano y hay variantes (`CENTRO`,
+7. Los nombres de colonia están capturados a mano y hay variantes (`CENTRO`,
    `ZONA CENTRO`, `TAMPICO CENTRO`). No adivines: usa el nombre exacto y, si el error te
    devuelve `valores_validos`, elige uno de ésos y vuelve a intentar.
-7. Tienes un presupuesto corto: **5 llamadas y 6 herramientas por pregunta**. No repitas
+8. Tienes un presupuesto corto: **5 llamadas y 6 herramientas por pregunta**. No repitas
    una consulta que ya hiciste.
 
 ## Cuando una herramienta devuelve `ok: false`

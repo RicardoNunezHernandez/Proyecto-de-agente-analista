@@ -1,0 +1,9 @@
+id,nombre,codigo_act,actividad,sector,estrato,municipio,tipo_asentamiento,colonia,codigo_postal,calle,numero_exterior,tipo_unidad,latitud,longitud,fecha_alta
+1,FARMACIA LA PAZ,464111,Farmacias sin minisúper,46,0 a 5 personas,Tampico,COLONIA,CENTRO,89000,CALLE FICTICIA,1,Fijo,22.2,-97.8,2026-05
+2,FARMA EXPRESS,464112,Farmacias con minisúper,46,6 a 10 personas,Ciudad Madero,COLONIA,UNIDAD NACIONAL,89000,CALLE FICTICIA,1,Fijo,22.2,-97.8,2026-05
+3,NATURISTA VIDA,464113,"Comercio al por menor de productos naturistas, medicamentos homeopáticos y de complementos alimenticios",46,0 a 5 personas,Tampico,COLONIA,CENTRO,89000,CALLE FICTICIA,1,Fijo,22.2,-97.8,2026-05
+4,TACOS EL GUERO,722514,Restaurantes con servicio de preparación de tacos y tortas,72,0 a 5 personas,Tampico,COLONIA,LAS AMERICAS,89000,CALLE FICTICIA,1,Fijo,22.2,-97.8,2026-05
+5,TAQUERIA DOÑA LUPE,722514,Restaurantes con servicio de preparación de tacos y tortas,72,11 a 30 personas,Ciudad Madero,COLONIA,UNIDAD NACIONAL,89000,CALLE FICTICIA,1,Fijo,22.2,-97.8,2026-05
+6,CAFE DEL PUERTO,722515,"Cafeterías, fuentes de sodas, neverías, refresquerías y similares",72,6 a 10 personas,Tampico,COLONIA,CENTRO,89000,CALLE FICTICIA,1,Fijo,22.2,-97.8,2026-05
+7,FARMACIA SAN JOSE,464111,Farmacias sin minisúper,46,0 a 5 personas,Ciudad Madero,COLONIA,PRIMERO DE MAYO,89000,CALLE FICTICIA,1,Fijo,22.2,-97.8,2026-05
+8,ABARROTES MARY,461110,"Comercio al por menor en tiendas de abarrotes, ultramarinos y misceláneas",46,0 a 5 personas,Tampico,COLONIA,LAS AMERICAS,89000,CALLE FICTICIA,1,Fijo,22.2,-97.8,2026-05
