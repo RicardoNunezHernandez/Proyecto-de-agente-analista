@@ -245,9 +245,7 @@ casos de la guardia y los siete de la tabla chica de la traza. El detalle de tod
 
 ## Declaración de uso de inteligencia artificial
 
-Este proyecto se desarrolló con **Claude Code (Anthropic)**, con autorización expresa del
-profesor para usar asistencia de IA en **todas** las partes del proyecto, incluida la traza
-de la Parte E (`traza_manual.md` documenta cómo se produjo).
+Este proyecto se desarrolló con **Claude Code (Anthropic)**, en casi todas las partes del proyecto.
 
 - **Código** (`app/`, `pruebas/`, `evaluacion/`): escrito con el asistente a partir del
   enunciado, revisando contra los contratos de la sección 5.1. Hubo que decidir a mano
