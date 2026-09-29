@@ -29,6 +29,10 @@ _CLAVES_TEXTO = ("pregunta", "texto", "enunciado", "question")
 
 def leer_banco(ruta: str = RUTA_PREGUNTAS) -> list[tuple[str, str]]:
     """Devuelve [(id, pregunta), ...] del banco del docente."""
+    if not Path(ruta).exists():
+        raise FileNotFoundError(
+            f"falta {ruta}: copie los archivos de material_proyecto_u1.zip en data/"
+        )
     crudo = json.loads(Path(ruta).read_text(encoding="utf-8"))
 
     if isinstance(crudo, dict):
