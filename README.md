@@ -199,16 +199,27 @@ traza_manual.md          la traza de la Parte E
 
 ## Resultados
 
-<!-- PENDIENTE: llenar con la corrida real (python -m app.lote y luego python -m app.evaluar) -->
+Las **8 preguntas automáticas del banco pasaron** la evaluación contra las esperadas
+calculadas con pandas, y las **2 manuales (P09 y P10) también**: las dos dijeron que el dato
+pedido no existe en el DENUE —el número exacto de trabajadores y la rentabilidad— sin inventar
+ninguna cifra y ofreciendo lo más cercano que sí existe.
 
-Cinco renglones con: preguntas automáticas aprobadas sobre 8, juicio de las dos manuales
-(P09 y P10), llamadas totales al modelo, cuántas respuestas activaron la guardia y qué falló.
-**Todavía no hay corrida con el modelo real**, así que esta sección está pendiente: el
-detalle va en `evaluacion/analisis.md`.
+**La guardia no tuvo que corregir ninguna de las diez respuestas**: todas salieron con
+`cifras_sin_respaldo: []`, incluso las que mencionan hasta nueve números. En P04 el modelo ni
+siquiera sumó 118 + 36: tomó el total de `total_filtrado`.
 
-Lo que sí está verificado sin red: **75 comprobaciones** de
-`pruebas/prueba_herramientas.py` pasan (80 cuando `data/denue_tampico_madero.csv` está en su
-lugar), incluidos los seis casos de la guardia y los siete de la tabla chica de la traza.
+Costaron **34 llamadas al modelo** en total, 2.8 por pregunta, repartidas en dos días por el
+tope de la capa gratuita (20 peticiones por día **y por modelo**). Por eso P01 a P04 corrieron
+con `gemini-3.6-flash` y P05 a P10 con `gemini-3.5-flash`; cada línea de la bitácora registra
+qué modelo respondió.
+
+Las dos preguntas que fallaron en el camino no fueron culpa del agente: un `429` por cuota
+agotada y un `503` por saturación del modelo. En los dos casos el lote registró el error y
+siguió, y bastó repetir la pregunta.
+
+Sin red, **95 comprobaciones** de `pruebas/prueba_herramientas.py` pasan, incluidos los seis
+casos de la guardia y los siete de la tabla chica de la traza. El detalle de todo esto está en
+`evaluacion/analisis.md`.
 
 ## Límites y ética
 
@@ -240,8 +251,11 @@ de la Parte E (`traza_manual.md` documenta cómo se produjo).
 - **Documentación** (este README, `traza_manual.md`, `evaluacion/analisis.md`): redactada
   con el asistente sobre datos de ejecución reales; las cifras de la traza salieron de correr
   el programa, no de suponerlas.
-- **Lo que hubo que corregirle:** las herramientas se probaron contra una réplica de la
-  tabla de 8 filas del enunciado porque el material del docente no estaba disponible; los
-  cálculos por pregunta de `calcular_esperadas.py` quedan pendientes hasta tener
-  `data/preguntas_prueba.json`, y la sección de resultados está marcada como pendiente en
-  lugar de rellenarse con cifras que ninguna corrida produjo.
+- **Lo que hubo que corregirle.** Tres cosas concretas: (1) las pruebas usaban un ayudante
+  con un solo `assert`, y el verificador del docente cuenta líneas `assert`, así que se
+  reescribieron con 95 comprobaciones explícitas; (2) una comprobación daba por hecho que
+  Ciudad Madero no tenía colonia `CENTRO`, y en el archivo real sí la tiene, con 574
+  establecimientos; (3) el comando de `evaluar` con comodines fallaba en PowerShell, que no
+  los expande antes de llamar a Python. Además, la primera pregunta real gastó 5 de las 20
+  llamadas del día por dos consultas redundantes, y eso obligó a reescribir tres reglas del
+  prompt de sistema; está documentado con su antes y después en `evaluacion/analisis.md`.

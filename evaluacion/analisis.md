@@ -1,45 +1,75 @@
 # Análisis de la evaluación · Parte F
 
-**Estado:** parcial. P01 a P04 ya se corrieron con el modelo real (`gemini-3.6-flash`) el
-28 de septiembre. P05 se cortó por cuota agotada y P06 a P10 quedan pendientes de la
-corrida del día siguiente. Todo lo marcado como *pendiente* se llena con
-`python -m app.evaluar logs/corrida-*.jsonl`, que imprime la tabla y escribe
-`evaluacion/resultados.json`.
+Corrida real del banco de 10 preguntas, repartida en dos días por la cuota de la capa
+gratuita. Las cifras de esta página salen de `evaluacion/resultados.json`, que produce
+`python -m app.evaluar logs/corrida-*.jsonl` a partir de las cinco bitácoras de `logs/`.
+
+**Modelos usados.** P01 a P04 con `gemini-3.6-flash`; P05 a P10 con `gemini-3.5-flash`. El
+cambio no fue por gusto: la cuota gratuita es de 20 peticiones **por día y por modelo**
+(`GenerateRequestsPerDayPerProjectPerModel-FreeTier`), se agotó a mitad del banco y cambiar
+de modelo fue la forma de terminar sin esperar al día siguiente. Cada línea de la bitácora
+guarda qué modelo respondió.
 
 ---
 
 ## 1. Las diez preguntas
 
-| ID | Resultado | Turnos | Herramientas | Cifras sin respaldo | Nota |
+| ID | Resultado | Turnos | Herramientas | Cifras sin respaldo | Qué pidió el modelo |
 |---|---|---|---|---|---|
-| P01 | PASA (7184) | 2 | 1 | `[]` | Una sola llamada a `contar`, sin búsqueda previa: la pregunta no pide un giro |
-| P02 | PASA (184) | 3 | 2 | `[]` | `buscar_actividades("cafeteria")` y `contar(codigo_act="722515")`: los tres giros son una sola clase SCIAN |
-| P03 | PASA (685, 387, 296, 250, 167) | 2 | 1 | `[]` | Un solo `ranking(por="codigo_act", top=5)`; 53.6 s, la más lenta por lo larga que es la respuesta |
-| P04 | PASA (154, 118, 36) | 3 | 2 | `[]` | `buscar_actividades` y `ranking`; el total salió de `total_filtrado`, sin llamar a `contar` |
-| P05 | *pendiente* (cortada por cuota) | — | 1 | — | Alcanzó a pedir `buscar_actividades("taqueria")` antes del 429 |
-| P06 | *pendiente* | | | | |
-| P07 | *pendiente* | | | | |
-| P08 | *pendiente* | | | | |
-| P09 | *pendiente* · manual | | | | juicio contra el criterio, con la frase de la respuesta que lo justifica |
-| P10 | *pendiente* · manual | | | | idem |
+| P01 | **PASA** (7184) | 2 | 1 | `[]` | `contar(municipio="Ciudad Madero")` |
+| P02 | **PASA** (184) | 3 | 2 | `[]` | `buscar_actividades("cafeteria")`, `contar(codigo_act="722515", municipio="Tampico")` |
+| P03 | **PASA** (685, 387, 296, 250, 167) | 2 | 1 | `[]` | `ranking(por="codigo_act", top=5, municipio="Ciudad Madero")` |
+| P04 | **PASA** (154, 118, 36) | 3 | 2 | `[]` | `buscar_actividades("farmacia")`, `ranking(por="codigo_act", codigo_act="464111,464112", municipio="Tampico")` |
+| P05 | **PASA** (570, 296) | 4 | 3 | `[]` | `buscar_actividades("taqueria")` → vacío, `buscar_actividades("tacos")`, `ranking(por="municipio", codigo_act="722514")` |
+| P06 | **PASA** (5400, Comercio al por menor) | 2 | 1 | `[]` | `ranking(por="sector", municipio="Tampico")` |
+| P07 | **PASA** (52, UNIDAD NACIONAL) | 3 | 2 | `[]` | `buscar_actividades("salon de belleza")`, `ranking(por="colonia", top=5, codigo_act="812110", municipio="Ciudad Madero")` |
+| P08 | **PASA** (11 + tres ejemplos) | 3 | 2 | `[]` | `contar(estrato="251 y más personas", municipio="Ciudad Madero")`, `listar(limite=3, ...)` |
+| P09 | **MANUAL: pasa** | 4 | 3 | `[]` | `buscar_actividades("refineria")` → vacío, `buscar_actividades("petroleo")`, `listar(codigo_act="324110")` |
+| P10 | **MANUAL: pasa** | 2 | 1 | `[]` | `ranking(por="sector", municipio="Tampico")` |
 
-Las cuatro respondidas coinciden exactamente con las cifras de `evaluacion/esperadas.json`,
-calculadas con pandas antes de la corrida.
+### El juicio de las dos manuales
+
+**P09 · «¿Cuántos trabajadores tiene exactamente la Refinería Francisco I. Madero?»**
+Cumple el criterio. La frase que lo justifica:
+
+> «El DENUE no registra el número exacto de trabajadores de los establecimientos, sino un
+> rango de personal ocupado. Para la "REFINERIA CD. MADERO FRANCISCO I. MADERO" (ID 6515146),
+> ubicada en Ciudad Madero dentro de la clase de actividad 324110 (Refinación de petróleo),
+> el estrato reportado es de 251 y más personas.»
+
+Dice que el dato exacto no existe, no inventa ninguna cifra de empleados, identifica el
+establecimiento y entrega el estrato **presentándolo como rango**, que es la parte que el
+criterio marcaba como diferencia entre pasar y fallar.
+
+**P10 · «¿Cuál es el negocio más rentable para abrir en Tampico?»**
+Cumple el criterio. La frase que lo justifica:
+
+> «El DENUE no contiene datos sobre ventas, ingresos, utilidades o la rentabilidad de los
+> establecimientos. Lo más cercano que puedo ofrecerte es el volumen de negocios por sector
+> en Tampico para identificar cuáles son las **actividades más comunes**: de un total de
+> 15716 establecimientos, el sector con mayor presencia es el comercio al por menor con 5400
+> unidades...»
+
+Niega el dato, no recomienda ningún giro como «el más rentable» y ofrece lo más cercano que
+sí existe, nombrándolo por lo que es —volumen, no rentabilidad—. Las cuatro cifras que da
+(15716, 5400, 2589, 2275) salieron de un solo `ranking`.
 
 ## 2. Totales
 
-- Automáticas aprobadas: **4 de 4 corridas** (faltan 4 de las 8 automáticas).
-- Manuales: pendientes.
-- Llamadas reales al modelo hasta ahora: **16** (5 de una prueba desde la terminal y 11 del
-  lote, contando la que se cortó).
-- Respuestas en las que la guardia intervino: **0 de 5**. Las cinco revisiones salieron con
+- **Automáticas aprobadas: 8 de 8.**
+- **Manuales: 2 de 2** según mi juicio contra los criterios de `esperadas.json`.
+- **Llamadas totales al modelo: 34**, repartidas así: 5 de una prueba desde la terminal
+  (antes de corregir el prompt), 15 de P01 a P05 el día 28 y 14 de P05 a P10 el día 29,
+  contando los dos intentos fallidos.
+- **Respuestas en las que la guardia intervino: 0 de 10.** Las diez salieron con
   `cifras_sin_respaldo: []`.
+- Turnos por pregunta: entre 2 y 4, con 2.8 de promedio. Herramientas: entre 1 y 3.
 
 ## 3. Tres casos analizados
 
-### Caso 1 · La misma pregunta, de 5 turnos a 3 (causa: la declaración y el prompt)
+### Caso 1 · La misma pregunta, de 5 turnos a 3 (causa: el prompt y la declaración)
 
-La primera pregunta real fue «¿Cuántas farmacias hay en Tampico?» desde la terminal, y gastó
+La primera pregunta real, desde la terminal, fue «¿Cuántas farmacias hay en Tampico?» y gastó
 **5 turnos y 4 herramientas**: llegó al cierre forzado. La bitácora
 (`logs/corrida-20260928-233558.jsonl`) muestra por qué:
 
@@ -50,9 +80,9 @@ contar  {"municipio": "Tampico", "codigo_act": "464111,464112"}   -> 154
 ranking {"municipio": "Tampico", "codigo_act": "464111,464112", "por": "codigo_act"}
 ```
 
-Dos llamadas de más. La segunda búsqueda fue el modelo asegurándose «por si acaso», y el
-`contar` fue innecesario porque `ranking` ya devuelve `total_filtrado`: el 154 venía incluido
-en la cuarta llamada.
+Dos llamadas de más: la segunda búsqueda fue el modelo asegurándose «por si acaso», y el
+`contar` fue innecesario porque `ranking` ya devuelve `total_filtrado` —el 154 venía incluido
+en la cuarta llamada—.
 
 **Causa:** el prompt de sistema y la descripción de la declaración. El prompt decía «si no
 encuentras nada, prueba con un sinónimo» sin aclarar que eso aplica **sólo** cuando la lista
@@ -62,42 +92,70 @@ vuelve vacía, y ninguna de las dos decía que `ranking` trae el total y el desg
 da total y desglose en una llamada; la mayoría de las preguntas se resuelven con dos
 herramientas) y la descripción de `ranking` en `DECLARACIONES`.
 
-**Resultado medido:** P04 del banco es exactamente la misma pregunta de farmacias, y con el
-prompt corregido la resolvió en **3 turnos y 2 herramientas**, con la misma respuesta
-(154 = 118 + 36). De 5 llamadas a 3 en la misma pregunta: el gasto estimado del banco bajó de
-unas 50 llamadas a unas 30, bajo una cuota de 20 al día.
+**Resultado medido:** P04 es exactamente la misma pregunta, y con el prompt corregido la
+resolvió en **3 turnos y 2 herramientas** con la misma respuesta. De 5 llamadas a 3 en la
+misma pregunta; el promedio del banco quedó en 2.8 llamadas por pregunta.
 
-### Caso 2 · P05 cortada por cuota (causa: el modelo, no el agente)
+### Caso 2 · Las dos preguntas que se cayeron, y ninguna fue del agente
 
-P05 alcanzó a pedir `buscar_actividades("taqueria")` y en la siguiente llamada recibió
-`429 RESOURCE_EXHAUSTED`, con `quotaId: GenerateRequestsPerDayPerProjectPerModel-FreeTier`
-y `quotaValue: 20`: el tope diario de la capa gratuita para `gemini-3.6-flash`.
+**P05 el día 28 · `429 RESOURCE_EXHAUSTED`.** Alcanzó a pedir `buscar_actividades("taqueria")`
+y en la siguiente llamada topó con el tope diario de 20 peticiones de `gemini-3.6-flash`.
 
-No es un fallo del agente ni de las herramientas. Lo que sí demuestra es que el lote hace lo
-que debe: registró un evento `error` en la bitácora, siguió su curso y terminó informando
-`4 respondidas, 1 con error`, sin tumbar el programa ni perder las cuatro respuestas ya
-obtenidas.
+**P07 el día 29 · `503 UNAVAILABLE`**, «this model is currently experiencing high demand»: una
+falla temporal del lado de Google, no del programa. Se repitió la pregunta sin cambiar nada y
+respondió correctamente a los cinco minutos.
 
-**Qué cambiaría:** repartir la corrida desde el principio en tramos de cuatro o cinco
-preguntas por día, y no gastar llamadas reales en pruebas que el modelo simulado resuelve
-igual. Las 5 llamadas del caso 1 fueron, en los hechos, una quinta parte de la cuota del día
-gastada en una pregunta que el banco volvía a hacer.
+En los dos casos el lote hizo lo que debía: registró un evento `error` en la bitácora, siguió
+con las preguntas siguientes y terminó informando `5 respondidas, 1 con error`, sin tumbar el
+programa ni perder lo ya obtenido.
 
-### Caso 3 · *pendiente de la corrida de P05 a P10*
+**Qué cambiaría:** repartir la corrida en tramos de cuatro o cinco preguntas desde el
+principio, y no gastar llamadas reales en pruebas que el simulado resuelve igual —las 5
+llamadas del caso 1 fueron una cuarta parte de la cuota del día gastada en una pregunta que
+el banco volvía a hacer—. Para el 503, bastaría reintentar la pregunta una vez antes de darla
+por fallada, que es lo que hice a mano.
+
+### Caso 3 · Las preguntas más caras: el vocabulario de la calle no es el del SCIAN
+
+Las dos preguntas que más herramientas gastaron (3 cada una) fallaron primero en la búsqueda,
+por la misma razón:
+
+- **P05:** `buscar_actividades("taqueria")` devolvió **lista vacía**, porque la clase se llama
+  «Restaurantes con servicio de preparación de **tacos** y tortas»: la palabra «taquería» no
+  aparece en ningún nombre del SCIAN. El modelo probó «tacos» y encontró 722514.
+- **P09:** `buscar_actividades("refineria")` devolvió **lista vacía**, porque la clase se llama
+  «Refinación de **petróleo**». El modelo probó «petroleo» y encontró 324110.
+
+**Causa:** no es un fallo de la herramienta ni del modelo, sino la distancia entre cómo nombra
+la gente los giros y cómo los nombra el clasificador. La regla del prompt —«si la lista vuelve
+vacía, prueba con un sinónimo»— es justo lo que salvó las dos preguntas, y el costo fue una
+herramienta extra en cada una.
+
+**Qué cambiaría:** agregar al prompt de sistema una lista corta de equivalencias frecuentes
+(taquería → tacos, refinería → refinación/petróleo, estética → belleza, tiendita → abarrotes),
+que ahorraría esa llamada. La otra opción sería que `buscar_actividades` buscara también por
+raíces parecidas, pero eso la volvería adivinadora, y el proyecto decidió a propósito que las
+herramientas no adivinen: prefiero que el modelo pruebe otra palabra y que quede registrado en
+la bitácora.
 
 ## 4. ¿La guardia corrigió alguna respuesta?
 
-**Todavía no.** Las cinco revisiones de las respuestas reales salieron con
-`cifras_sin_respaldo: []`: ninguna trajo una cifra que no viniera de una herramienta. Vale la
-pena notar que las respuestas sí traen bastantes números —P03 menciona cinco totales y cinco
-códigos SCIAN de seis dígitos, P04 menciona 154, 118, 36 y las clases 464111 y 464112— y
-todos estaban respaldados.
+**No, ninguna vez en las diez preguntas reales.** Las diez revisiones salieron con
+`cifras_sin_respaldo: []`.
 
-Que no se active es el resultado deseado, no una falla de la guardia: el prompt pide no
-calcular y el modelo obedeció. Lo que la habría activado es exactamente lo que el modelo no
-hizo: sumar dos subtotales en vez de pedirlos, calcular la diferencia entre dos municipios o
-sacar un porcentaje. Los casos G2 y G3 de `traza_manual.md` son esa situación con las cifras
-reales de taquerías, y la guardia los detecta.
+No es que la guardia no tuviera trabajo: las respuestas traen bastantes números. P03 menciona
+cinco totales y cinco códigos SCIAN de seis dígitos; P04 menciona 154, 118, 36 y las clases
+464111 y 464112; P10 menciona 15716, 5400, 2589 y 2275. Todos estaban respaldados por algún
+resultado de herramienta. El caso más interesante es P04: el modelo **no** sumó 118 + 36 para
+decir 154, sino que tomó el 154 de `total_filtrado` del mismo `ranking`. Si lo hubiera sumado
+él, el resultado sería el mismo número y la guardia igual lo habría dejado pasar —porque 154
+estaba respaldado—, pero el hábito es el correcto.
+
+Que no se active es el resultado buscado, no una falla. **Lo que la habría activado** es
+exactamente lo que el modelo no hizo: sumar dos subtotales en lugar de pedirlos, calcular la
+diferencia entre Tampico y Ciudad Madero en P05, o sacar el porcentaje que representa un
+sector en P06. Los casos G2 y G3 de `traza_manual.md` son esa situación con las cifras reales
+de P05, y la guardia los detecta.
 
 Con el modelo simulado sí se activa, y ese camino está probado de punta a punta: en el paso 3
 del guion escribe «160 farmacias» cuando `contar` devolvió 154, la guardia lo detecta, el
